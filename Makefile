@@ -16,14 +16,14 @@ FILTERS=--filter=./pandoc-svg.py --filter pandoc-citeproc
 # a sibling file relative to root. This may break some versions of latex,
 # I think...
 .PHONY: pdf
-pdf: $(CONTENT)
+pdf:
 	@mkdir -p $(OUTPUT_DIR)
 
 	TEXINPUTS=$(TEXINPUTS):./template pandoc meta.yaml $(BUILD_META) --template=template/gmu_thesis.tex $(CONTENT) $(APPENDICES) $(FILTERS) --smart -s -o $(OUTPUT_DIR)$(OUTPUT_NAME).pdf
 
 # Useful for debugging.
 .PHONY: tex 
-tex: $(CONTENT)
+tex:
 	@mkdir -p $(OUTPUT_DIR)
 
 	TEXINPUTS=$(TEXINPUTS):./template pandoc meta.yaml $(BUILD_META) --template=template/gmu_thesis.tex $(CONTENT) $(APPENDICES) $(FILTERS) --smart -s -o $(OUTPUT_DIR)$(OUTPUT_NAME).tex
