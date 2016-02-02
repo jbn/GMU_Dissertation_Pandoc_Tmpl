@@ -1,0 +1,27 @@
+---
+title: A Computational Model of Belief System Discovery and Expression in American Democracy
+author: John Bjorn Nelson
+degree: Doctor of Philosophy
+doctype: Dissertation
+school: College of Science
+department: Computational and Data Sciences
+discipline: Computational Social Science
+degree_year: 2016
+degree_semester: Fall Semester
+advisor: Claudio Cioffi-Revilla
+prior_degrees:
+    first_degree: 
+        desc: Bachelor of Science
+        school: University of Maryland
+        year: 2007
+    second_degree: 
+        desc: Potions Master
+        school: Hogwarts School for Wizardry
+        year: 2009
+is_draft: true
+signature_page: template/sigs/compsocsci.tex
+two_page_abstract: true
+bibliography: bibliography.bibtex
+reference-section-title: Bibliography
+suppress-bibliography: false
+---

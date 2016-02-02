@@ -1,0 +1,115 @@
+
+This file provides usage notes to the GMU PhD LaTeX dissertation style designed
+by Daniel O. Awduche and Christopher A. St. Jean of GMU's Communications and
+Networking Lab.
+
+%%**********************************************************************
+%% Legal Notice:
+%% This code is offered as-is without any warranty either
+%% expressed or implied; without even the implied warranty of
+%% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE!
+%% User assumes all risk.
+%% In no event shall any contributor to this code be liable for any damages
+%% or losses, including, but not limited to, incidental, consequential, or
+%% any other damages, resulting from the use or misuse of any information
+%% contained here.
+%%**********************************************************************
+
+% Revision information
+$Id: USAGE_NOTES.txt,v 1.4 2006/08/25 01:41:58 Owner Exp $
+
+-----
+
+1. General Notes
+
+  (a) All LaTeX commands (e.g., \abstractpage) listed in this template must be
+        included as written (exception: \abstractmultiplepage may be commented out
+        if the abstract occupies only the first page)
+
+  (b) For appendix chapters, you have to use the command appchapter{} instead
+        of chapter{} due to a page-numbering difference.
+
+  (c) The only way that consistent margins may be expected is for the compile/print
+       process to replicate what was used during the template's creation (Deviating
+       from these steps may cause unexpected and unsatisfactory results!):
+
+       (1) Compile the LaTeX file/project as usual to create the .dvi file
+
+       (2) Use dvi2pdf to convert the .dvi file to .pdf (Using the WinEdt™ file
+            editor, this is accomplished by using the "dvi -> pdf" button.)
+
+       (3) Print the pdf from Adobe reader BUT in the print dialogue window, make
+            sure that "Page Scaling" is set to "none" and the "Auto-Rotate and
+            Center" field is left unchecked.
+
+2. Abstract
+
+    Currently, the template file (GMU_dissertation_template.tex) includes on line 139 the
+    optional command "\abstractmultiplepage" to create a second page for the abstract.
+    It has become clear, however, that if this option is not selected, the page numbering
+    scheme is disrupted.  Specifically, in the Table of Contents, the page number is listed
+    as "0" instead of the appropriate Roman numeral (usually "viii").
+
+    A permanent solution for this problem is forthcoming, and this problem is rightly
+    referred to as a "known issue."  As currently coded, therefore, it is *strongly*
+    recommended that the abstract extend to the second page, if at all possible.
+    (I would suspect that the abstract would occupy both pages in the majority of
+    dissertations anyhow.)
+
+3. Figures and Tables
+
+  (a) GMU dissertation guidelines mandate that figures and tables be separated from
+        the narrative text by a few line spaces.  By default, LaTeX won't add enough
+        space after figures and tables, so such space needs to be added manually for
+        each figure.  This can be done by adding the command \figSpace after the
+        caption for figures:
+
+        \begin{figure}
+            \centering
+            \includegraphics[scale=0.3]{figGeorgeMason}\\
+            \caption{An appropriate historical figure}
+
+            % This adds separation space between this figure and either another
+            %   figure, or between the figure and the text.
+            \figSpace
+        \end{figure}
+
+        or the command \tableSpace after the tabular environment for a table:
+
+        \begin{table}
+            \centering
+            \caption{Another table}
+            % Tabular environment goes AFTER the caption!
+            \begin{tabular}{|c|c|c|}
+            % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+            \hline
+            1 & 2 & 3 \\\hline
+            4 & 5 & 6 \\\hline
+            7 & 8 & 9 \\
+            \hline
+            \end{tabular}
+
+            % This adds separation space between this table and either another
+            %   table, or between the table and the text.
+            \tableSpace
+        \end{table}
+
+        Currently, \figSpace and \tableSpace are set in both set to a 0.3"
+        vertical skip in gmudissertation.sty but could be changed in principle.
+
+  (b) Figures (or tables) that appear on a page without any narrative text would
+        tend to be centered on the page by LaTeX.  However, the GMU style insists
+        that such figures be forced to the top of their page.  The student should
+        thus look carefully at the compiled document and identify any such cases.
+        Then, for each case, the optional argument [!t] needs to be added to the
+        \begin{figure} (or \begin{table}) command as follows:
+
+        \begin{figure}[!t]
+
+            ... (FIGURE CODE) ...
+
+        \end{figure}
+
+        This should force the picture to the top of the page.  (I say "should" since
+        I have found cases in which this does not work properly; this method should
+        still represent the first attempt at fixing the problem, however.)
