@@ -67,6 +67,10 @@ Actually, anywhere you want. Automatically though, your chapters go in `chapters
 
 You can change any of this by editing the `APPENDICES` or `CONTENT` variables in the `Makefile`.
 
+## Distributing your PDF
+
+Your committee needs regular updates. If you are lucky, you can convince them to subscribe to a shared dropbox. Think of this as a staging area. If you run `make distribute` your thesis gets compiled and copied to this directory. You can update it by setting `DROPBOX_DIR` in your `Makefile`. 
+
 ## How can I customize the template?
 
 Where possible, edit `gmu_thesis_user_prefs.sty`. That's what this file is for. The template also conforms to `--include-in-header=<FILE>` and `--include-before-body=<FILE>` arguments to `pandoc`, so you can edit the `Makefile`. Prefer these methods to editing `template/gmu_thesis.tex`. 
