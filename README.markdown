@@ -11,6 +11,10 @@ In terms of design, I favored pandoc's template language (`template/gmu_thesis.t
 - Add a Pythonic pandoc filter for taking care of currently ignored issues. In particular, see Section 3 of `template/USAGE.orig.txt`. As an example, consider that UDTS wants extra space between figures. (Alternatively, this could be a simple redefined environment in LaTeX.) 
 - Fix the bibliography problem.
 
+# Installation
+
+See my [paper repository](https://github.com/jbn/paper#installation) README for information on installing the nessessary dependencies. 
+
 # Usage
 
 To build the collection of facts and figures that is your dissertation, just `make` it. Your details (e.g. name, school) mostly go in `meta.yaml`. But, there are some caveats and things that need elaboration.
@@ -83,9 +87,7 @@ Further references:
 - *2015*: [JSS template: Appendix not possible after references](https://github.com/rstudio/rticles/issues/29)
 - *2015*: [Proposal: templating with headings // headings for table of contents / references / footnotes / etc](https://groups.google.com/forum/#!topic/pandoc-discuss/HxmpFK-Ydus)
 - *2016*: [Allow bibliography to follow heading with id of "refs"](https://github.com/jgm/pandoc-citeproc/issues/210)
-# Installation
 
-See my [paper repository](https://github.com/jbn/paper#installation) README for information on installing the nessessary dependencies. 
 
 # Tips
 
