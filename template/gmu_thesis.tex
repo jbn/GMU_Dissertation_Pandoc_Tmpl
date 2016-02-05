@@ -279,7 +279,7 @@ $if(two_page_abstract)$
 %% at the page break; otherwise, comment it out.  (See note about this line
 %% in the usage notes.)
 %%
-\abstractmultiplepage
+\pagebreak \thispagestyle{empty}
 
 \input{template/envelope/abstract_cont}
 $endif$
@@ -316,7 +316,7 @@ $body$
 \pagebreak
 $if(include-after)$
 \appendix
-\appendixeqnumbering
+\renewcommand{\theequation}{\thechapter.\arabic{equation}}
 $endif$
 
 $for(include-after)$

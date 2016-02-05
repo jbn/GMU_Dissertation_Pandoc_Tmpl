@@ -146,81 +146,6 @@
 % for and fix such page breaks)
 \brokenpenalty=10000
 
-%%%%%
-%%%%%   SETUP COMMANDS PECULIAR TO THESES
-%%%%%
-
-% \author, \title are defined in report; here are the rest of the
-% front matter defining macros
-\def\onelinetitle#1{\gdef\@onelinetitle{#1}}
-\def\degree#1{\gdef\@degree{#1}}
-\def\doctype#1{\gdef\@doctype{#1}}
-\def\chapterOneTitle#1{\gdef\@chapterOneTitle{#1}}
-\def\dept#1{\gdef\@dept{#1}}
-\def\discipline#1{\gdef\@discipline{#1}} % Needed after the degree title in the title page (Muhammad Abdulla)
-\def\advis@r{Adviser} % default spelling
-\def\advisor#1{\gdef\@advisor{#1}}
-\def\firstmember#1{\gdef\@firstmember{#1}}
-\def\secondmember#1{\gdef\@secondmember{#1}}
-\def\thirdmember#1{\gdef\@thirdmember{#1}}
-\def\fourthmember#1{\gdef\@fourthmember{#1}}
-\def\depthead#1{\gdef\@depthead{#1}}
-\def\deptheadtitle#1{\gdef\@deptheadtitle{#1}}
-\def\deanITE#1{\gdef\@deanITE{#1}}
-\def\school#1{\gdef\@school{#1}}
-\def\submitdate#1{\gdef\@submitdate{#1}}
-% \def\copyrightyear#1{\gdef\@copyrightyear{#1}} % \author, \title in report
-\def\firstdeg#1{\gdef\@firstdeg{#1}}
-\def\firstdegschool#1{\gdef\@firstdegschool{#1}}
-\def\firstdegyear#1{\gdef\@firstdegyear{#1}}
-\def\seconddeg#1{\gdef\@seconddeg{#1}}
-\def\seconddegschool#1{\gdef\@seconddegschool{#1}}
-\def\seconddegyear#1{\gdef\@seconddegyear{#1}}
-\def\degreesemester#1{\gdef\@degreesemester{#1}}
-\def\degreeyear#1{\gdef\@degreeyear{#1}}
-\def\abstract#1{\gdef\@abstract{#1}}
-% needed only for dual language departments
-\def\language#1{\gdef\@language{#1}} \def\@language{babel}
-\def\@title{}\def\@author{}\def\@dept{Computer Science}\def\@discipline{Computer Science}
-\def\@advisor{}\def\@firstmember{*}\def\@secondmember{*}
-\def\@thirdmember{*}
-\def\@fourthmember{*}
-% \def\@submitdate{\ifcase\the\month\or
-%   January\or February\or March\or April\or May\or June\or
-%   July\or August\or September\or October\or November\or December\fi
-%   \space \number\the\year}
-% \ifnum\month>8
-%     \@tempcnta=\year \advance\@tempcnta by 1
-%     \edef\@copyrightyear{\number\the\@tempcnta}
-% \else
-%     \def\@copyrightyear{\number\the\year}
-% \fi
-\newif\ifcopyright \newif\iffigurespage \newif\iftablespage
-\newif\ifthesiscopyright
-\copyrighttrue \figurespagetrue \tablespagetrue
-\thesiscopyrighttrue
-
-\def\@standardsub{submitted to the department of \lowercase\expandafter{\@dept}\\
-                and the committee on graduate studies}
-\def\@standardend{}
-
-\def\committeethesis{\let\@whichsub=\@committeesub}
-\def\programthesis{\let\@whichsub=\@programsub}
-\def\educationthesis{\let\@whichsub=\@educationsub}
-\def\businessthesis{\let\@whichsub=\@businesssub}
-\def\lawthesis{\let\@whichsub=\@lawsub}
-\def\humanitiesthesis{\let\@whichsub=\@humanitiessub%
-\let\@whichend=\@humanitiesend}
-\def\specialthesis{\let\@whichsub=\@specialsub%
-\let\@whichend=\@specialend}
-\def\industrialthesis{\let\@whichsub=\@industrialsub%
-\let\@whichend=\@industrialend}
-\def\dualthesis{\let\@whichsub=\@dualsub%
-\let\@whichend=\@dualend}
-
-\let\@whichend=\@standardend
-\let\@whichsub=\@standardsub
-
 \def\beforedoc{
     %
     % --- spacing and page numbering
@@ -228,23 +153,6 @@
 
     \markright{}
     \pagestyle{myheadings}
-}
-
-
-
-
-\def\acknowledgementspage{%
-        % The settings for lineskips are carried over from the dedication page.
-        % But we cannot depend on it. So adding these lines to be sure that the
-        % text in acknowledgements is single spaced. (Muhammad Abdulla)
-        \ls{1}
-
-        \pagebreak
-        \vspace*{0.30 in}%{0.175 in}%\vspace*{0.63in}
-        \begin{center}
-        {\Large \bf Acknowledgments}
-        \end{center}
-        \vskip 2.73 pc
 }
 
 \def\startofchapters{%
@@ -528,57 +436,6 @@
 }
 
 %
-% --- abstract
-%
-
-\def\abstractpage{
-    \pagebreak
-    \baselineskip=0.25pc
-    \lineskip=0.25pc
-    \lineskiplimit=0.25pc
-
-    \thispagestyle{empty}
-
-    \chapt{Abstract}
-
-    \baselineskip=1pc
-    \lineskip=1pc
-    \lineskiplimit=1pc
-
-    \vskip 0.25cm
-    \noi
-    \ls{1}
-    \rm\uppercase\expandafter{\@onelinetitle}
-    \nl
-
-     \baselineskip=1pc
-     \lineskip=1pc
-     \lineskiplimit=1pc
-
-    \noi
-    \@author, PhD
-    \nl
-
-    \noi
-    George Mason University, \@degreeyear
-    \nl
-
-    \noi
-    \@doctype\ Director: \@advisor
-    \nl
-
-    \vskip 46pt
-}
-
-\def\abstractmultiplepage{
-    \pagebreak \thispagestyle{empty}
-}
-
-\def\appendixeqnumbering {
-    \renewcommand{\theequation}{\thechapter.\arabic{equation}}
-}
-
-%
 % --- bibliography
 %
 
@@ -603,36 +460,5 @@
     \sloppy\clubpenalty4000\widowpenalty4000
     \sfcode`\.=1000\relax}
 
-%
-% --- curriculum vitae
-%
 
-\def\cvpage{%
-        \pagebreak
-        \vspace*{.26 in}
-        \begin{center}
-        {\Large \bf Curriculum Vitae}
-        \end{center}
-        \vskip 43 pt
-        \ls{1}
-        \noindent
-}
 
-% we can send console reminder messages to the user here
-% Added by Muhammad Abdulla
-\AtEndDocument{
-\typeout{}%
-\typeout{======================== Attention ===============================}%
-\typeout{}%
-\typeout{The signature lines are different for each College/School of}%
-\typeout{George Mason University.}%
-\typeout{}%
-\typeout{The current signature page is set according to the requirements} %
-\typeout{of the Volgenau School of Information Technology and Engineering.}%
-\typeout{Students of other colleges/schools may need to manipulate the}%
-\typeout{"signaturepage" section of the gmudissertation.sty file in order}%
-\typeout{for the signature page to be formatted correctly.}%
-\typeout{}%
-\typeout{==================================================================}%
-\typeout{}%
-}

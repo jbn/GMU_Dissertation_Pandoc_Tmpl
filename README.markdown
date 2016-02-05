@@ -8,8 +8,7 @@ In terms of design, I favored pandoc's template language (`template/gmu_thesis.t
 
 (*I'm putting this section here, hoping a user will commit these changes. :wink: :wink:*)
 
-- Add a Pythonic pandoc filter for taking care of currently ignored issues. In particular, see Section 3 of `template/USAGE.orig.txt`. As an example, consider that UDTS wants extra space between figures. (Alternatively, this could be a simple redefined environment in LaTeX.) 
-- Fix the bibliography problem.
+Please see [the issues](https://github.com/jbn/GMU_Dissertation_Pandoc_Tmpl/issues).
 
 # Installation
 
