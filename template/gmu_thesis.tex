@@ -27,6 +27,8 @@
 \usepackage{longtable}
 \usepackage{booktabs}
 \usepackage{bookmark}
+\usepackage{listings}
+
 
 %% The file ``mydissertationabbrev.sty'' is an (optional) personalized file 
 %% that may contain any and all LaTeX command (re)definitions that will be used
@@ -181,7 +183,7 @@ $endif$
 \end{center}
 \vskip 2.93 pc
 
-\noindent \input{template/envelope/dedication}
+\noindent \input{envelope/dedication}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %             _____ _                 _                            
@@ -202,7 +204,7 @@ $endif$
 \end{center}
 \vskip 2.73 pc
 
-\noindent \input{template/envelope/acknowledgements}
+\noindent \input{envelope/acknowledgements}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %             __            _                   _   _             
@@ -268,7 +270,7 @@ $endif$
     \vskip 46pt
 
 
-\input{template/envelope/abstract}
+\input{envelope/abstract}
 
 $if(two_page_abstract)$
 %% Be sure to leave a line of whitespace immediately before this line!!!!!
@@ -281,7 +283,7 @@ $if(two_page_abstract)$
 %%
 \pagebreak \thispagestyle{empty}
 
-\input{template/envelope/abstract_cont}
+\input{envelope/abstract_cont}
 $endif$
 
 

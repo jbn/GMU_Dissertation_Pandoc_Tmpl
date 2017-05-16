@@ -1,4 +1,4 @@
-# In the beginning...
+In the beginning...
 
 ...there was house music.
 
@@ -9,6 +9,5 @@ $$ e^{i \pi} + 1 = 0$$
 |Left|Right|
 |:--:|:--:|
 |HAH|HAH|
-
 
 @Shannon49

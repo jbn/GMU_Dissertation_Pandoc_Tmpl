@@ -1,33 +1,28 @@
-OUTPUT_NAME=can_i_haz_phd
-OUTPUT_DIR=target/
-DROPBOX_DIR=~/Dropbox/PHD_CI/
+.PHONY: image
+image:
+	docker build -t generativist/gmu_pandoc_phd .	
 
-# This is for a draft page that conveys good information. If you are not 
-# using git, the `BUILD_REVISION` is empty. 
-BUILD_DATE_TIME=`date -u +"%Y-%m-%dT%H:%M:%SZ"`
-BUILD_REVISION=`git rev-parse --short HEAD`
-BUILD_META=--variable build_date_time=$(BUILD_DATE_TIME) --variable commit=$(BUILD_REVISION)
-
-CONTENT=chapters/*.md
-APPENDICES=--include-after-body=appendices/appendix.md
-FILTERS=--filter=./pandoc-svg.py --filter pandoc-citeproc
-
-# Notice: I ammend the TEXINPUTS so that the `sty` file doesn't have to be
-# a sibling file relative to root. This may break some versions of latex,
-# I think...
 .PHONY: pdf
 pdf:
-	@mkdir -p $(OUTPUT_DIR)
-
-	TEXINPUTS=$(TEXINPUTS):./template pandoc meta.yaml $(BUILD_META) --template=template/gmu_thesis.tex $(CONTENT) $(APPENDICES) $(FILTERS) --smart -s -o $(OUTPUT_DIR)$(OUTPUT_NAME).pdf
+	docker run \
+		-e CONTENT=chapters/example.md \
+		-e EXTRAS="--template=/gmu/template/gmu_thesis.tex" \
+		-e APPENDICES=--include-after-body=appendices/appendix.md \
+		-v `pwd`:/src --rm -it generativist/gmu_pandoc_phd
 
 # Useful for debugging.
 .PHONY: tex 
 tex:
-	@mkdir -p $(OUTPUT_DIR)
+	docker run \
+		-e OUTPUT_FMT=tex \
+		-e CONTENT=chapters/example.md \
+		-e EXTRAS="--template=/gmu/template/gmu_thesis.tex" \
+		-v `pwd`:/src --rm -it generativist/gmu_pandoc_phd
 
-	TEXINPUTS=$(TEXINPUTS):./template pandoc meta.yaml $(BUILD_META) --template=template/gmu_thesis.tex $(CONTENT) $(APPENDICES) $(FILTERS) --smart -s -o $(OUTPUT_DIR)$(OUTPUT_NAME).tex
+.PHONY: html 
+html:
+	docker run \
+		-e CONTENT=chapters/example.md \
+		-e OUTPUT_FMT=html \
+		-v `pwd`:/src --rm -it generativist/gmu_pandoc_phd
 
-.PHONY: distribute
-distribute: pdf
-	cp $(OUTPUT_DIR)$(OUTPUT_NAME).pdf $(DROPBOX_DIR)$(OUTPUT_NAME).pdf
