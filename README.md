@@ -10,17 +10,22 @@ In terms of design, I favored pandoc's template language (`template/gmu_thesis.t
 
 Please see [the issues](https://github.com/jbn/GMU_Dissertation_Pandoc_Tmpl/issues).
 
+# Installation
+
+From the directory you want to write your dissertation in,
+
+```sh
+docker run --rm -v $PWD:/src generativist/gmu_pandoc_phd:latest bootstrap.sh
+```
+
+(TODO FINISH INSTRUCTIONS)
 
 # Usage
 
 To build the collection of facts and figures that is your dissertation, 
 
 ```sh
-docker run \
-    -e CONTENT=chapters/example.md \
-    -e EXTRAS="--template=/gmu/template/gmu_thesis.tex" \
-    -e APPENDICES=--include-after-body=appendices/appendix.md \
-    -v `pwd`:/src --rm -it generativist/gmu_pandoc_phd:latest
+make pdf
 ```
 
 

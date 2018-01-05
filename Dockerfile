@@ -42,11 +42,15 @@ ENV OUTPUT_FMT=pdf \
     META_FILE=meta.yaml \
     OUTPUT_DIR=build \
     OUTPUT_NAME=thesis \
-    TEXINPUTS=${TEXINPUTS}:/gmu/template
+    TEXINPUTS=${TEXINPUTS}:/src/template
 
 WORKDIR /src
 
-COPY build_thesis /usr/local/bin
-COPY template /gmu/template
+COPY build_thesis.sh /usr/local/bin
+COPY bootstrap.sh /usr/local/bin
+RUN mkdir /gmu
+COPY Makefile.example /gmu
+COPY meta.yaml.example /gmu
+COPY template/ /gmu/template
 
-CMD build_thesis
+CMD build_thesis.sh
