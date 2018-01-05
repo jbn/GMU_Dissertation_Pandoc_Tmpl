@@ -10,13 +10,21 @@ In terms of design, I favored pandoc's template language (`template/gmu_thesis.t
 
 Please see [the issues](https://github.com/jbn/GMU_Dissertation_Pandoc_Tmpl/issues).
 
-# Installation
-
-See my [paper repository](https://github.com/jbn/paper#installation) README for information on installing the nessessary dependencies. 
 
 # Usage
 
-To build the collection of facts and figures that is your dissertation, just `make` it. Your details (e.g. name, school) mostly go in `meta.yaml`. But, there are some caveats and things that need elaboration.
+To build the collection of facts and figures that is your dissertation, 
+
+```sh
+docker run \
+    -e CONTENT=chapters/example.md \
+    -e EXTRAS="--template=/gmu/template/gmu_thesis.tex" \
+    -e APPENDICES=--include-after-body=appendices/appendix.md \
+    -v `pwd`:/src --rm -it generativist/gmu_pandoc_phd:latest
+```
+
+
+Your details (e.g. name, school) mostly go in `meta.yaml`. But, there are some caveats and things that need elaboration. I'll get to that soon.
 
 ## Where is my PDF?
 
