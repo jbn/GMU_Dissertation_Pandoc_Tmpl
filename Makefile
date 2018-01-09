@@ -26,3 +26,7 @@ html:
 		-e OUTPUT_FMT=html \
 		-v `pwd`:/src --rm -it generativist/gmu_pandoc_phd
 
+.PHONY: release
+release:
+	docker tag generativist/gmu_pandoc_phd generativist/gmu_pandoc_phd:latest
+	docker push generativist/gmu_pandoc_phd:latest

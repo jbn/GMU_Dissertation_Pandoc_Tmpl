@@ -1,14 +1,4 @@
-# Background and Motivation
-
-[Daniel O Awduche](http://www.awduche.com/) and Christopher A St Jean built a [LaTeX template for writing a GMU thesis](http://thesis.gmu.edu/templates.html). [Muhammad Abdulla](http://cs.gmu.edu/~mabdulla/) modified it a bit, too. Looking at the CVS revisions, the last modification occured back in 2008. Given the speed of LaTeX evolution, that's fine. However, in terms of workflow, I'd like to write in Pandoc-flavored markdown. That's true in general, but almost doubly so for my thesis. I'll never share the mandated typeset with anyone but the library. Everyone else will get a document that targets modern screens rather than dot matrix printer.
-
-In terms of design, I favored pandoc's template language (`template/gmu_thesis.tex`) over writing LaTeX code. LaTeX's noise makes LISP feel like pure signal. (Well, that, plus I don't have much LaTeX macro-writing experience, and I'm strapped for time.) I'll try to keep future updates as unobtrusive as possible. 
-
-# TODO
-
-(*I'm putting this section here, hoping a user will commit these changes. :wink: :wink:*)
-
-Please see [the issues](https://github.com/jbn/GMU_Dissertation_Pandoc_Tmpl/issues).
+[![Build Status](https://travis-ci.org/jbn/GMU_Dissertation_Pandoc_Tmpl.svg?branch=master)](https://travis-ci.org/jbn/GMU_Dissertation_Pandoc_Tmpl)
 
 # Installation
 
@@ -17,8 +7,22 @@ From the directory you want to write your dissertation in,
 ```sh
 docker run --rm -v $PWD:/src generativist/gmu_pandoc_phd:latest bootstrap.sh
 ```
+This will pull the docker image and setup your development directory with 
+required configuration files and templates. There are two files 
+`Makefile.example` and `meta.yaml.example` that you should edit and rename to 
+`Makefile` and `meta.yaml`, respectively. If you have a preexisting 
+`Makefile`, you can just append it to yours.
 
-(TODO FINISH INSTRUCTIONS)
+The `template` directory contains your customizable latex envelop. You'll 
+need to edit files in there to satisfy your schools requirements. 
+
+The default `Makefile.example` script expects minimal content of 
+`chapters/example.md` and `appendices/appendix.md`. Create those files or 
+change the expected files. 
+
+Finally, this script assumes you're using git. If you don't already have a 
+repository, create one with a first commit (e.g. 
+`git init; git add .; git commit -m 'First commit'`)
 
 # Usage
 
@@ -27,9 +31,6 @@ To build the collection of facts and figures that is your dissertation,
 ```sh
 make pdf
 ```
-
-
-Your details (e.g. name, school) mostly go in `meta.yaml`. But, there are some caveats and things that need elaboration. I'll get to that soon.
 
 ## Where is my PDF?
 
@@ -106,3 +107,16 @@ Further references:
 ## Live-preview on OSX
 
 If you are on OSX, use skim instead of preview for watching changes to your PDF. Mavericks or something broke auto-reloading in preview. Skim works (with occasional crashes).
+
+# Background and Motivation
+
+[Daniel O Awduche](http://www.awduche.com/) and Christopher A St Jean built a [LaTeX template for writing a GMU thesis](http://thesis.gmu.edu/templates.html). [Muhammad Abdulla](http://cs.gmu.edu/~mabdulla/) modified it a bit, too. Looking at the CVS revisions, the last modification occured back in 2008. Given the speed of LaTeX evolution, that's fine. However, in terms of workflow, I'd like to write in Pandoc-flavored markdown. That's true in general, but almost doubly so for my thesis. I'll never share the mandated typeset with anyone but the library. Everyone else will get a document that targets modern screens rather than dot matrix printer.
+
+In terms of design, I favored pandoc's template language (`template/gmu_thesis.tex`) over writing LaTeX code. LaTeX's noise makes LISP feel like pure signal. (Well, that, plus I don't have much LaTeX macro-writing experience, and I'm strapped for time.) I'll try to keep future updates as unobtrusive as possible. 
+
+# TODO
+
+(*I'm putting this section here, hoping a user will commit these changes. :wink: :wink:*)
+
+Please see [the issues](https://github.com/jbn/GMU_Dissertation_Pandoc_Tmpl/issues).
+
