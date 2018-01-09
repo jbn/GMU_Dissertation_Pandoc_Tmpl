@@ -5,7 +5,7 @@ set -v
 
 # Copy the template files.
 mkdir /src/template
-cp -r /gmu/template /src/template
+cp -r /gmu/template /src
 
 # Copy the meta.yaml file
 cp /gmu/meta.yaml.example /src/
