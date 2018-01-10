@@ -1,3 +1,5 @@
+# Chapter 0
+
 In the beginning...
 
 ...there was house music.

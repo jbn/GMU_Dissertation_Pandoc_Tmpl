@@ -6,7 +6,7 @@ image:
 pdf:
 	docker run \
 		-e CONTENT=chapters/example.md \
-		-e EXTRAS="--template=/gmu/template/gmu_thesis.tex" \
+		-e EXTRAS="--template=/src/template/gmu_thesis.tex" \
 		-e APPENDICES=--include-after-body=appendices/appendix.md \
 		-v `pwd`:/src --rm -it generativist/gmu_pandoc_phd
 
@@ -16,7 +16,7 @@ tex:
 	docker run \
 		-e OUTPUT_FMT=tex \
 		-e CONTENT=chapters/example.md \
-		-e EXTRAS="--template=/gmu/template/gmu_thesis.tex" \
+		-e EXTRAS="--template=/src/template/gmu_thesis.tex" \
 		-v `pwd`:/src --rm -it generativist/gmu_pandoc_phd
 
 .PHONY: html 

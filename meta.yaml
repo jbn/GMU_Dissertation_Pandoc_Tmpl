@@ -19,7 +19,7 @@ prior_degrees:
         school: Hogwarts School for Wizardry
         year: 2009
 is_draft: true
-signature_page: /src/sigs/compsocsci.tex
+signature_page: /src/template/sigs/compsocsci.tex
 two_page_abstract: true
 bibliography: bibliography.bibtex
 reference-section-title: Bibliography
