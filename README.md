@@ -1,5 +1,10 @@
 [![Build Status](https://travis-ci.org/jbn/GMU_Dissertation_Pandoc_Tmpl.svg?branch=master)](https://travis-ci.org/jbn/GMU_Dissertation_Pandoc_Tmpl)
 
+# WARNING
+
+This is a work in progress. It's not actaully compliant with university 
+demands yet. And, the API will chage (probably). 
+
 # Installation
 
 From the directory you want to write your dissertation in,
