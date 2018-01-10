@@ -91,22 +91,6 @@ Where possible, edit `gmu_thesis_user_prefs.sty`. That's what this file is for. 
 
 The `--include-after-body` flag doesn't work the way you would think. Instead, it's used to inject your appendices. But, semantically, that's what it is for, almost. 
 
-## The Trouble with Bibliographies
-
-GMU requires appendices prior to the bibliography. That makes sense. The bibliography is a kind of appendix, one with bibliographic information. But, it's less important than substantive appendices. Unfortunately, pandoc `citeproc` appends the bibliography to the `$body$`. And -- although there are some workarounds -- they are all kludges here. 
-
-I still have no good solution. The best recommendation right now is to build the `tex` file for the final copy, and move it yourself. That works for the overwhelming majority of the use case. 
-
-Further references:
-
-- *2012*: [Manipulating Bibliography/References List Location in Document](https://groups.google.com/forum/#!searchin/pandoc-discuss/location/pandoc-discuss/zza71I0zes4/KkYrkKMvGmIJ)
-- *2013*: [references variable in templates](https://github.com/jgm/pandoc/issues/771)
-- *2015*: [This Thread](Specifying location of bibliography in document)
-- *2015*: [JSS template: Appendix not possible after references](https://github.com/rstudio/rticles/issues/29)
-- *2015*: [Proposal: templating with headings // headings for table of contents / references / footnotes / etc](https://groups.google.com/forum/#!topic/pandoc-discuss/HxmpFK-Ydus)
-- *2016*: [Allow bibliography to follow heading with id of "refs"](https://github.com/jgm/pandoc-citeproc/issues/210)
-
-
 # Tips
 
 ## Live-preview on OSX
