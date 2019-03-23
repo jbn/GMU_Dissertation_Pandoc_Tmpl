@@ -11,6 +11,8 @@ ENV OUTPUT_FMT=pdf \
 
 WORKDIR /src
 
+RUN cabal install pandoc-crossref
+
 COPY build_thesis.sh /usr/local/bin
 COPY bootstrap.sh /usr/local/bin
 RUN mkdir /gmu
